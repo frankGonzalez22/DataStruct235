@@ -38,7 +38,8 @@ public:
     */
 
 
-    Creature(string& init_name, Category init_category, int init_hitpoints, bool init_tame);
+Creature(string& init_name, bool init_tame, Category init_category,  int init_level, int init_hitpoints);
+
     /**
     @param : the name of the Creature, a reference to string
     @post  : sets the Creature's name to the value of the parameter in UPPERCASE. 
