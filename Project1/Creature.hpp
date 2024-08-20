@@ -15,7 +15,7 @@ private:
     bool is_tame;
     
    
-public:
+public:    
     /**
       Default constructor.
       Default-initializes all private members. 
@@ -38,7 +38,7 @@ public:
     */
 
 
-Creature(string& init_name, bool init_tame, Category init_category,  int init_level, int init_hitpoints);
+    Creature(string& init_name, bool init_tame, Category init_category,  int init_level, int init_hitpoints);
 
     /**
     @param : the name of the Creature, a reference to string
@@ -56,7 +56,7 @@ Creature(string& init_name, bool init_tame, Category init_category,  int init_le
     /**
       @return : the name of the Creature
     */
-    string getName();
+    string  getName();
 
 
     /**

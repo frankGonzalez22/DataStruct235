@@ -1,6 +1,9 @@
 #include "Creature.hpp"
 #include <string>
+#include<cstring>
 using namespace std;
+
+  
  /**
       Default constructor.
       Default-initializes all private members. 
@@ -16,8 +19,7 @@ using namespace std;
     category_ = UNKOWN;
     level_ = 1;
     hit_points_ = 1;
-
-  }
+  };
   Creature::Creature(string& init_name, bool init_tame, Category init_category,  int init_level, int init_hitpoints)
   {
     name_ = init_name;
@@ -25,7 +27,7 @@ using namespace std;
     category_ = init_category;
     level_ = init_level;
     hit_points_ = init_hitpoints;
-  }
+  };
 
   /**
   @param : the name of the Creature, a reference to string
@@ -37,16 +39,40 @@ using namespace std;
   */
   bool Creature::setName(string& init_name)
   {
-     
+    //ASCII values of lowercase characters  97 - 122
+    //ASCII values of UpperCase values  65-90 
+
+
+    //if lower case assign name to UPPERCASE 
+    string emptyStr = "";
+    bool output = false;
+
+    for(int i = 0; i < init_name.length(); i++)
+    {
+      //if any character containts ONLY lowercase and Upper Case letter 
+      if(  (int)init_name[i]>= 97 && (int)init_name[i] <= 122 
+        || ( (int)init_name[i] >= 65 && (int)init_name[i]<= 90 ) )
+      {
+        emptyStr +=toupper(init_name[i]);
+        name_ = emptyStr;
+        output = true;  
+      }
+      else
+        output = false;
+    }
+    return output;
+  
+
+    
   }
 
 
   /**
     @return : the name of the Creature
   */
-  string Creature::getName()
+  string  Creature::getName()
   {
-    return "";
+    return name_;
   }
 
 
@@ -63,7 +89,11 @@ using namespace std;
   /**
     @return : the category of the Creature (in string form)
     */
-  string getCategory();
+  string  Creature::getCategory()
+  {
+    string strCategory = to_string(category_);
+    return strCategory;
+  }
 
   /**
   @param  : a reference to integer that represents the creature's hitpoints
